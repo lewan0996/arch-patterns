@@ -40,5 +40,14 @@ An explicitly documented and verified technology replacement for a selected arch
 **Recommended combination**:
 A selection of compatible options across applicable ingredients, suggested for a stated project context.
 
+**Client-facing API**:
+The single public API a client uses to access a system without selecting its internal services. A browser or mobile BFF and a machine-facing audience API are variants.
+
+**Backend for frontend (BFF)**:
+A client-specific API for a user-facing application that shapes its API for that client's needs. A browser BFF also owns the browser session.
+
+**API gateway**:
+An optional routing entry point for a group of services. It can sit behind client-facing APIs to share routing among them; its authentication responsibilities are selected separately.
+
 **Template**:
 A reusable starting point that creates a new solution or a new service or module in a new folder.
