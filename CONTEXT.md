@@ -19,6 +19,9 @@ A named architecture approach within an ingredient. A service or module uses one
 **Application-flow profile**:
 The service- or module-wide rules for invoking and coordinating use cases.
 
+**Contract layer**:
+A module's public query requests, data transfer shapes and, where applicable, query interfaces used by its host or other modules. Commands and internal behavior are excluded.
+
 **Anemic domain model**:
 Data-only domain objects whose business behavior lives in application services.
 
