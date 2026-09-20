@@ -25,6 +25,12 @@ Data-only domain objects whose business behavior lives in application services.
 **CQRS**:
 An application-flow approach with separate command and query models.
 
+**CQS**:
+Command-query separation: methods that change state are separate from methods that retrieve data. It does not require separate command and query models.
+
+**Read model**:
+The data shape used to answer queries. It may be separate from the write model without being a domain model.
+
 **Supported substitution**:
 An explicitly documented and verified technology replacement for a selected architecture option.
 
