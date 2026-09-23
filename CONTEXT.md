@@ -20,7 +20,7 @@ A named architecture approach within an ingredient. A service or module uses one
 The service- or module-wide rules for invoking and coordinating use cases.
 
 **Contract layer**:
-A module's public query requests, data transfer shapes and, where applicable, query interfaces used by its host or other modules. Commands and internal behavior are excluded.
+A module's public commands, queries, query response shapes and integration events. Handlers and internal application or domain behavior are excluded.
 
 **Anemic domain model**:
 Data-only domain objects whose business behavior lives in application services.
@@ -102,3 +102,30 @@ A high-entropy secret used by designated internal endpoints as a coarse check th
 
 **Template**:
 A reusable starting point that creates a new solution or a new service or module in a new folder.
+
+**Operational boundary**:
+The deployable process that owns runtime health, lifecycle, configuration consumption, resilience policy and telemetry emission. A microservice is one boundary; in a modular monolith the host is the boundary and modules contribute domain-specific signals.
+
+**Local development profile**:
+The supported developer runtime in which a Dev Container supplies the toolchain and runs or debugs the application, while Docker Compose supplies its runtime dependencies.
+
+**Container platform**:
+A production runtime that schedules and operates OCI containers, including exposed orchestrators such as Kubernetes and managed services that hide the underlying orchestration.
+
+**Secret reference**:
+A named configuration input whose value is supplied at runtime from outside the source repository and deployable image.
+
+**Operational baseline**:
+The minimum runtime contract required of every generated deployable: structured logging, health probes, graceful shutdown, validated external configuration and secrets, bounded remote calls and a portable container artifact.
+
+**Operational job**:
+A finite deployable process for rollout-related work such as a database migration, separate from long-running application replicas.
+
+**Availability profile**:
+The selected single-region replication and scaling behavior for a deployable: single-replica, replicated with rolling replacement, or autoscaled and replicated.
+
+**Configuration update profile**:
+The way a deployable adopts external configuration changes. Replacement or restart is the default; dynamic reload is optional.
+
+**Credential delivery profile**:
+The way a deployable obtains credentials for a downstream resource: a secret injected from outside the image or a platform-issued workload identity. Workload identity is preferred where the platform and resource support it; live secret rotation is optional.
