@@ -19,6 +19,12 @@ A named architecture approach within an ingredient. A service or module uses one
 **Application-flow profile**:
 The service- or module-wide rules for invoking and coordinating use cases.
 
+**Direct-service application-flow profile**:
+An application-flow profile in which the API invokes Application-owned services grouped by business capability.
+
+**CQRS application-flow profile**:
+An application-flow profile with separate command and query models and mediator-style dispatch, selected consistently for a service or module.
+
 **Contract layer**:
 A module's public commands, queries, query response shapes and integration events. Handlers and internal application or domain behavior are excluded.
 
