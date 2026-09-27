@@ -8,7 +8,13 @@ A catalog of architecture choices for .NET projects, intended for reuse across t
 The composition of a system and the relationships between its clients, entry points and services.
 
 **Low-level architecture**:
-The internal organization of one microservice or one modular-monolith module.
+The internal organization of a service or a module within a deployable host.
+
+**Module**:
+An internal boundary within one deployable host that owns its endpoints, application and domain behavior, data, and public contract. The host may be a modular monolith or a microservice containing multiple modules.
+
+**Microservice host**:
+The single deployable host of a microservice. It composes an initial module and may later compose additional modules within that microservice's deployment boundary.
 
 **Ingredient**:
 An architecture decision area with named options, selected at system or service/module scope where applicable.
