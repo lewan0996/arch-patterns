@@ -49,8 +49,14 @@ The data shape used to answer queries. It may be separate from the write model w
 **Data owner**:
 A service or module that controls changes to its own data and schema. Other boundaries access that data through published queries or events.
 
+**Domain event**:
+A fact raised by domain behavior for handling within its owning module.
+
+**Integration-event contract**:
+A publisher-owned fact schema exposed to other boundaries. Explicitly selected routes may use the same contract for in-process module handling and post-commit publication.
+
 **Transactional module event**:
-An in-process fact handled across modules before their shared database transaction commits. A handler failure aborts the transaction.
+An integration-event contract handled in-process across modules before their shared database transaction commits. A handler failure aborts the transaction.
 
 **Published integration event**:
 A fact about a committed change published outside its data owner for eventual processing.
