@@ -64,6 +64,9 @@ A fact about a committed change published outside its data owner for eventual pr
 **Permission projection**:
 A service-held read representation of access-management assignments used for local authorization checks.
 
+**Maximum permission-data lag**:
+The one system-wide limit on how long an authorization decision may rely on a permission answer that has not incorporated a change to direct assignments, roles, memberships, or policy data committed by Access Management. It does not promise immediate revocation.
+
 **Supported substitution**:
 An explicitly documented and verified technology replacement for a selected architecture option.
 
