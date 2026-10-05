@@ -14,7 +14,13 @@ The internal organization of a service or a module within a deployable host.
 An internal boundary within one deployable host that owns its endpoints, application and domain behavior, data, and public contract. The host may be a modular monolith or a microservice containing multiple modules.
 
 **Microservice host**:
-The single deployable host of a microservice. It composes an initial module and may later compose additional modules within that microservice's deployment boundary.
+The single deployable process of a microservice. Its startup and composition responsibilities may share an API project with the sole module or belong to a separate API project that composes named modules.
+
+**Single-module microservice**:
+A microservice with one module whose API also owns the host responsibilities.
+
+**Modular microservice**:
+A microservice with a separate host that composes one or more named modules within the same deployment boundary.
 
 **Ingredient**:
 An architecture decision area with named options, selected at system or service/module scope where applicable.
@@ -138,6 +144,9 @@ A named configuration input whose value is supplied at runtime from outside the 
 
 **Operational baseline**:
 The minimum runtime contract required of every generated deployable: structured logging, health probes, graceful shutdown, validated external configuration and secrets, bounded remote calls and a portable container artifact.
+
+**Outbound resilience profile**:
+A catalog option for synchronous remote calls: a bounded single attempt or bounded retries of eligible transient failures when replay is safe.
 
 **Operational job**:
 A finite deployable process for rollout-related work such as a database migration, separate from long-running application replicas.
