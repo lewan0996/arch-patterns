@@ -28,6 +28,15 @@ An architecture decision area with named options, selected at system or service/
 **Option**:
 A named architecture approach within an ingredient. A service or module uses one consistent option per applicable ingredient.
 
+**Architecture-selection record**:
+The canonical solution-wide record of boundary identities and explicitly selected architecture options and technologies. Choices use stable, human-readable catalog names.
+
+**Boundary identity**:
+A stable identifier for a particular system, host or module, independent of its display name and location.
+
+**Selection drift**:
+A disagreement between recorded architecture selections or boundary locations and the relevant source structure or dependencies.
+
 **Application-flow profile**:
 The service- or module-wide rules for invoking and coordinating use cases.
 
@@ -42,6 +51,15 @@ A module's public commands, queries, query response shapes and integration event
 
 **Anemic domain model**:
 Data-only domain objects whose business behavior lives in application services.
+
+**Add-aggregate action**:
+A catalog action that adds an aggregate root and explicitly specified domain behavior within a selected existing module using a rich domain model.
+
+**Add-entity action**:
+A catalog action that adds an entity within a selected existing module: under an existing aggregate in a rich domain model, or as a data entity in an anemic domain model.
+
+**Action request**:
+An explicit user instruction to perform a catalog action, expressed through either a named skill invocation or ordinary language. Discussing or mentioning an action does not by itself request its execution.
 
 **CQRS**:
 An application-flow approach with separate command and query models.
