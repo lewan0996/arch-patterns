@@ -97,6 +97,9 @@ An explicitly documented and verified technology replacement for a selected arch
 **Recommended combination**:
 A selection of compatible options across applicable ingredients, suggested for a stated project context.
 
+**Verified combination**:
+A named combination of catalog selections whose documented generation and runtime checks have passed. Architectural compatibility alone does not establish this status.
+
 **Client-facing API**:
 The single public API a client uses to access a system without selecting its internal services. A browser or mobile BFF and a machine-facing audience API are variants.
 
