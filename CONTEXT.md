@@ -10,6 +10,12 @@ The composition of a system and the relationships between its clients, entry poi
 **Low-level architecture**:
 The internal organization of a service or a module within a deployable host.
 
+**Monolithic system**:
+A system whose application modules share one deployable application host. Separate client-facing components do not make its modules independently deployable.
+
+**Microservice system**:
+A system composed of independently deployable services. Each service may contain a single module or multiple modules within its own deployment boundary.
+
 **Module**:
 An internal boundary within one deployable host that owns its endpoints, application and domain behavior, data, and public contract. The host may be a modular monolith or a microservice containing multiple modules.
 
@@ -123,6 +129,12 @@ Authority exercised by a service, background job or other workload under its own
 
 **Permission claim**:
 A token claim representing a coarse capability, such as a scope or role. It does not replace authorization based on a specific resource, tenant or business state.
+
+**Request authorization policy**:
+The policy type explicitly selected by a command or query declaration to govern authorization before its handler executes. Every request selects a policy, including requests intended to have no application-level authorization restriction.
+
+**Allow-all request policy**:
+An explicitly selected request authorization policy that imposes no application-level authorization restriction. Authentication requirements and business invariants remain separate.
 
 **Identity provider**:
 A replaceable OAuth 2.0 and OpenID Connect compatible system that authenticates users and issues tokens; the catalog does not require a particular vendor.
