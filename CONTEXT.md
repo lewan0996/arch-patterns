@@ -95,7 +95,7 @@ A fact about a committed change published outside its data owner for eventual pr
 A service-held read representation of access-management assignments used for local authorization checks.
 
 **Maximum permission-data lag**:
-The one system-wide limit on how long an authorization decision may rely on a permission answer that has not incorporated a change to direct assignments, roles, memberships, or policy data committed by Access Management. It does not promise immediate revocation.
+An upper bound on how long an authorization decision may rely on permission data that has not incorporated an authoritative assignment change. It does not promise immediate revocation.
 
 **Supported substitution**:
 An explicitly documented and verified technology replacement for a selected architecture option.
@@ -131,16 +131,16 @@ Authority exercised by a service, background job or other workload under its own
 A token claim representing a coarse capability, such as a scope or role. It does not replace authorization based on a specific resource, tenant or business state.
 
 **Request authorization policy**:
-The policy type explicitly selected by a command or query declaration to govern authorization before its handler executes. Every request selects a policy, including requests intended to have no application-level authorization restriction.
+The rule governing whether a caller may execute an application request, evaluated before its use-case behavior runs.
 
 **Allow-all request policy**:
-An explicitly selected request authorization policy that imposes no application-level authorization restriction. Authentication requirements and business invariants remain separate.
+A request authorization policy that intentionally imposes no application-level authorization restriction. Authentication requirements and business invariants remain separate.
 
 **Identity provider**:
 A replaceable OAuth 2.0 and OpenID Connect compatible system that authenticates users and issues tokens; the catalog does not require a particular vendor.
 
 **Access management**:
-The application-owned responsibility for mapping external identities and managing system-wide permission assignments. It is distinct from identity-provider authentication and from resource-specific authorization owned by a service or module.
+The application-owned management of system-wide permission assignments. It is distinct from identity-provider authentication, external-identity mapping and resource-specific authorization owned by a service or module.
 
 **Token-carried permissions**:
 An authorization profile in which a validated access token carries the caller's normalized permissions.
@@ -151,8 +151,14 @@ An authorization profile in which an access token identifies the caller while se
 **External identity**:
 The identity-provider-specific pair of issuer and subject that identifies a caller within that provider.
 
+**Identity mapping**:
+The association between an external identity and a stable application-owned user ID.
+
 **Internal user ID**:
 A stable application-owned identifier to which one or more external identities may be mapped, allowing identity providers to be replaced without changing domain ownership data.
+
+**Provider-neutral caller context**:
+The application-facing identity, authority and normalized permission facts for a caller, independent of an identity provider's claim conventions.
 
 **Role**:
 A named collection used to assign permissions. Application authorization checks permissions rather than depending directly on identity-provider roles or groups.
