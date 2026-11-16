@@ -6,7 +6,19 @@
     "id": "system-CatalogSystem",
     "name": "CatalogSystem",
     "solutionPath": "CatalogSystem.slnx",
-    "options": { "composition": "microservices" }
+    "options": { "composition": "CatalogComposition" }
   },
-  "hosts": []
+  "hosts": [
+//#if (composition == "modular-monolith")
+    {
+      "id": "host-CatalogSystem",
+      "name": "CatalogSystem",
+      "role": "monolith",
+      "path": "src/CatalogSystem",
+      "apiProject": "src/CatalogSystem/CatalogNamespace.CatalogSystem.API/CatalogNamespace.CatalogSystem.API.csproj",
+      "options": { "layout": "modular" },
+      "modules": []
+    }
+//#endif
+  ]
 }

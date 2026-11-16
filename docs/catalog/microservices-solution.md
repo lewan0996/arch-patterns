@@ -6,14 +6,14 @@
 
 ## Package increment
 
-`ArchPatterns.Templates` version `0.2.0` contains `arch-solution` with the single implemented composition `microservices`. It also provides [flat service creation](flat-service.md) with [PostgreSQL direct-service persistence](direct-service-postgresql.md). The remaining composition and three entry points are planned in the [delivery inventory](delivery.md#creation-chains). Later tickets extend this package. There is no generation wrapper.
+`ArchPatterns.Templates` version `0.3.0` contains `arch-solution` with the single implemented composition `microservices`. It also provides [flat service creation](flat-service.md) with [PostgreSQL direct-service persistence](direct-service-postgresql.md). The remaining composition and three entry points are planned in the [delivery inventory](delivery.md#creation-chains). Later tickets extend this package. There is no generation wrapper.
 
 Build and install the local artifact from the catalog checkout **inside a Dev Container** with .NET SDK `10.0.401`. Keep installation disposable even there; do not install templates globally on the workstation:
 
 ```bash
 export DOTNET_CLI_HOME="$(mktemp -d)"
 dotnet pack templates/ArchPatterns.Templates.csproj --configuration Release --output artifacts/packages
-dotnet new install ./artifacts/packages/ArchPatterns.Templates.0.2.0.nupkg
+dotnet new install ./artifacts/packages/ArchPatterns.Templates.0.3.0.nupkg
 dotnet new list arch-
 dotnet new arch-solution --help
 ```

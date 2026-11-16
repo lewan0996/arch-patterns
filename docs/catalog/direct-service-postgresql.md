@@ -12,7 +12,7 @@ responsibilities and coordination. Neither choice follows from deployment topolo
 
 The implemented native selection is a flat single-module service, anemic domain,
 direct-service flow, EF Core writes, PostgreSQL and parameterized EF raw SQL reads.
-It belongs to local package `0.2.0`; [installation and creation preflight](flat-service.md#inputs-and-creation)
+It belongs to local package `0.3.0`; [installation and creation preflight](flat-service.md#inputs-and-creation)
 requires explicit names, namespaces, selections and fresh destinations. No business
 service, repository or endpoint is invented in a production scaffold.
 

@@ -1,14 +1,37 @@
 {
   "release": "0.3.0",
-  "moduleSelectionOrder": ["domainModel", "applicationFlow", "database", "writePersistence", "queryAccess"],
+  "moduleSelectionOrder": [
+    "domainModel",
+    "applicationFlow",
+    "database",
+    "writePersistence",
+    "queryAccess"
+  ],
   "moduleSelections": {
     "service/single": [
-      ["anemic", "direct-service", "postgresql", "ef-core", "ef-core"],
-      ["rich", "direct-service", "postgresql", "ef-core", "ef-core"],
-      ["anemic", "cqrs", "postgresql", "ef-core", "ef-core"]
+      [
+        "anemic",
+        "direct-service",
+        "postgresql",
+        "ef-core",
+        "ef-core"
+      ],
+      [
+        "rich",
+        "direct-service",
+        "postgresql",
+        "ef-core",
+        "ef-core"
+      ]
     ],
     "monolith/modular": [
-      ["anemic", "direct-service", "postgresql", "ef-core", "ef-core"]
+      [
+        "anemic",
+        "direct-service",
+        "postgresql",
+        "ef-core",
+        "ef-core"
+      ]
     ]
   }
 }

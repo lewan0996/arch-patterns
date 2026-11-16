@@ -29,7 +29,8 @@
           "choice": "modular-monolith",
           "description": "One public API host composing independently named modules."
         }
-      ]
+      ],
+      "replaces": "CatalogComposition"
     },
     "rootNamespace": {
       "type": "parameter",

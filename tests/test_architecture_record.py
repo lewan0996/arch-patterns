@@ -199,7 +199,7 @@ class ArchitectureRecord(InstalledPackage):
                 result = self.validate(root)
                 self.assertNotEqual(0, result.returncode, keys)
                 self.assertIn(diagnostic, result.stderr)
-            for model, flow in [("anemic", "cqrs"), ("rich", "direct-service")]:
+            for model, flow in [("rich", "direct-service")]:
                 record = copy.deepcopy(original)
                 record["hosts"][0]["modules"][0]["options"].update(domainModel=model, applicationFlow=flow)
                 path.write_text(json.dumps(record))

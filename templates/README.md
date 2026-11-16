@@ -1,4 +1,4 @@
-# ArchPatterns.Templates 0.2.0
+# ArchPatterns.Templates 0.3.0
 
 One native package currently provides:
 
@@ -11,7 +11,7 @@ One native package currently provides:
 Install this local package in a disposable CLI home inside a Dev Container:
 
 ```bash
-dotnet new install ./ArchPatterns.Templates.0.2.0.nupkg
+dotnet new install ./ArchPatterns.Templates.0.3.0.nupkg
 dotnet new list arch-
 dotnet new arch-service --help
 ```
@@ -32,3 +32,5 @@ Linux OCI and real PostgreSQL fixture evidence is bounded by the catalog review;
 this local package is not the complete certified catalog release.
 
 The combined 0.3.0 increment also implements `arch-solution --composition modular-monolith` and `arch-module` for anemic/direct-service PostgreSQL named modules, using deliberate manual host/solution integration. See [the modular-monolith guide](../docs/catalog/modular-monolith.md) for supported creation, generated output and runtime evidence.
+
+Solutions include architecture.json and a self-contained .architecture schema/validator; see the catalog architecture-record page. Native additions preserve the existing record.

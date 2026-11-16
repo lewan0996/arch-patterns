@@ -5,7 +5,7 @@ Root namespace prefix: **CatalogNamespace**.
 <!--#if (composition == "microservices") -->
 Composition: **microservices**.
 
-This is a host-free solution scaffold from ArchPatterns.Templates 0.2.0. Each
+This is a host-free solution scaffold from ArchPatterns.Templates 0.3.0. Each
 future service owns its deployment and data; no system-wide host is created.
 Domain shape and application flow are independent selections in each module.
 There is no application, database, broker or identity provider to run yet.

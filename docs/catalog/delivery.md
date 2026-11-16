@@ -4,7 +4,7 @@
 
 ## Creation chains
 
-**Current support:** local package `ArchPatterns.Templates` `0.2.0` implements
+**Current support:** local package `ArchPatterns.Templates` `0.3.0` implements
 [host-free microservices solutions](microservices-solution.md), [flat services](flat-service.md)
 with the operational baseline, and [anemic/direct-service PostgreSQL persistence](direct-service-postgresql.md).
 Installed-package, Linux OCI and real PostgreSQL fixture checks cover those paths;
@@ -12,9 +12,9 @@ see the [dependency/evidence review](../dependencies/service-increment.md). The 
 
 | Selected structure | Native chain / status | Owning capability |
 | --- | --- | --- |
-| Microservices solution | [Implemented in 0.2.0](microservices-solution.md): `arch-solution --composition microservices`; no system-wide host | [#56](https://github.com/lewan0996/arch-patterns/issues/56) |
+| Microservices solution | [Implemented in 0.3.0](microservices-solution.md): `arch-solution --composition microservices`; no system-wide host | [#56](https://github.com/lewan0996/arch-patterns/issues/56) |
 | Modular-monolith solution | [Implemented modular-monolith chain](modular-monolith.md): explicit composition creates the public host; `arch-module` creates initial/later named modules with manual integration | [#59](https://github.com/lewan0996/arch-patterns/issues/59) |
-| Flat service | [Implemented in 0.2.0](flat-service.md): `arch-service --layout single --domainModel anemic --applicationFlow direct-service --database postgresql` | [#57](https://github.com/lewan0996/arch-patterns/issues/57) |
+| Flat service | [Implemented in 0.3.0](flat-service.md): `arch-service --layout single --domainModel anemic --applicationFlow direct-service --database postgresql` | [#57](https://github.com/lewan0996/arch-patterns/issues/57) |
 | Modular microservice | `arch-service` with modular layout, then `arch-module` for required initial module; same invocation chain for later modules | [#60](https://github.com/lewan0996/arch-patterns/issues/60) |
 | Browser BFF | `arch-bff` in a fresh component folder | [#68](https://github.com/lewan0996/arch-patterns/issues/68) |
 | Machine audience API | `arch-audience-api` in a fresh component folder | [#67](https://github.com/lewan0996/arch-patterns/issues/67) |
