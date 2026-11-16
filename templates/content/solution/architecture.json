@@ -1,0 +1,12 @@
+{
+  "$schema": ".architecture/architecture.v1.schema.json",
+  "schemaVersion": 1,
+  "catalog": { "id": "arch-patterns", "release": "0.3.0" },
+  "system": {
+    "id": "system-CatalogSystem",
+    "name": "CatalogSystem",
+    "solutionPath": "CatalogSystem.slnx",
+    "options": { "composition": "microservices" }
+  },
+  "hosts": []
+}

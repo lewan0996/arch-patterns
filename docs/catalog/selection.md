@@ -49,6 +49,6 @@ Capture identities and choices at their owning scopes, rather than choosing a si
 | Each interaction | HTTP or fact route, user/application authority, receiving authorization, persistence boundary, independent subscribers and idempotency; freshness/bootstrap/recovery for copies |
 | Delivery | Catalog release, support status, native chain or explicit AI action, exact integration instructions and applicable passing evidence |
 
-The future [architecture-selection record](https://github.com/lewan0996/arch-patterns/issues/81) stores current selections in root `architecture.json` under the [schema contract](https://github.com/lewan0996/arch-patterns/issues/30#issuecomment-6112277799). Source owns actual dependency versions; Git owns history. Check affected boundaries for selection drift before creation and reconcile discrepancies explicitly. Do not mark a partial action successful or silently reinterpret a conflicting record.
+The [architecture-selection record](architecture-record.md) stores current selections in root `architecture.json` under the [schema contract](https://github.com/lewan0996/arch-patterns/issues/30#issuecomment-6112277799). Fresh solutions include a versioned schema and deterministic validator. Source owns actual dependency versions; Git owns history. Check affected boundaries for selection drift before creation and reconcile discrepancies explicitly. Do not mark a partial action successful or silently reinterpret a conflicting record.
 
 Return to the [ingredient index](README.md) or inspect [guidance-only alternatives](deferred.md).

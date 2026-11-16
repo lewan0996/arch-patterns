@@ -70,7 +70,13 @@ Compose dependency, external credentials, migrations, runtime and tests.
 explicit `sln add` above is deliberate manual integration. Generation edits only
 fresh output. Existing hosts, configuration and architecture-selection records
 are untouched. Modular services/modules, BFFs, audience APIs and creation skills
-remain planned. There is no generated architecture.json in this increment.
+remain planned. `architecture.json` records current identities and explicit
+selections. Native service/module additions do not edit it: update it manually
+only after successful integration and checks. Preserve IDs when renaming or
+moving boundaries. Validate with the bundled `.architecture/validate.py` and its
+pinned virtual-environment requirements. See the catalog's architecture-record
+page for the full shape, supported combinations, commands and reconciliation
+rules. Source owns actual dependency versions; Git owns history.
 
 The catalog selection route and current support limits are at
 https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/selection.md.

@@ -15,10 +15,14 @@ jobs:
       - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
           global-json-file: global.json
+      - name: Install record validator tooling in an isolated environment
+        run: |
+          python3 -m venv "$RUNNER_TEMP/arch-validator"
+          "$RUNNER_TEMP/arch-validator/bin/python" -m pip install -r templates/content/solution/.architecture/requirements.txt
       - name: Verify installed templates, lifecycle, OCI and real PostgreSQL
         env:
           ARCH_TEST_CONTAINERS: '1'
-        run: python3 -m unittest discover -s tests -v
+        run: '"$RUNNER_TEMP/arch-validator/bin/python" -m unittest discover -s tests -v'
       - name: Pack the verified source
         run: dotnet pack templates/ArchPatterns.Templates.csproj --configuration Release --output artifacts/packages
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

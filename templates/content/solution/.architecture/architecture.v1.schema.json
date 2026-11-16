@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Architecture-selection record version 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "catalog",
+    "system",
+    "hosts"
+  ],
+  "properties": {
+    "$schema": {
+      "const": ".architecture/architecture.v1.schema.json"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "catalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "release"
+      ],
+      "properties": {
+        "id": {
+          "const": "arch-patterns"
+        },
+        "release": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "system": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "solutionPath",
+        "options"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identity"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "solutionPath": {
+          "type": "string",
+          "pattern": "\\.slnx?$"
+        },
+        "options": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "composition"
+          ],
+          "properties": {
+            "composition": {
+              "enum": [
+                "microservices",
+                "modular-monolith"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "hosts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/host"
+      }
+    }
+  },
+  "$defs": {
+    "identity": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "path",
+        "options",
+        "technologies"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identity"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "options": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "domainModel",
+            "applicationFlow",
+            "organization"
+          ],
+          "properties": {
+            "domainModel": {
+              "enum": [
+                "anemic",
+                "rich"
+              ]
+            },
+            "applicationFlow": {
+              "enum": [
+                "direct-service",
+                "cqrs"
+              ]
+            },
+            "organization": {
+              "const": "business-capability"
+            }
+          }
+        },
+        "technologies": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "database",
+            "writePersistence",
+            "queryAccess"
+          ],
+          "properties": {
+            "database": {
+              "enum": [
+                "postgresql",
+                "sql-server"
+              ]
+            },
+            "writePersistence": {
+              "const": "ef-core"
+            },
+            "queryAccess": {
+              "enum": [
+                "ef-core",
+                "dapper"
+              ]
+            }
+          }
+        },
+        "architectureNotes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "host": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "path",
+        "apiProject",
+        "role",
+        "options",
+        "modules"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identity"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "apiProject": {
+          "type": "string",
+          "pattern": "\\.csproj$"
+        },
+        "role": {
+          "enum": [
+            "service",
+            "monolith",
+            "bff",
+            "audience-api"
+          ]
+        },
+        "options": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "layout": {
+              "enum": [
+                "single",
+                "modular"
+              ]
+            },
+            "clientCredentialSession": {
+              "enum": [
+                "browser-session",
+                "bearer-token"
+              ]
+            }
+          }
+        },
+        "modules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/module"
+          }
+        },
+        "downstream": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/identity"
+          }
+        }
+      }
+    }
+  }
+}
