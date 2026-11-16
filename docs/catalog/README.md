@@ -26,10 +26,10 @@ Use these separate support descriptions:
 
 - **Documented:** guidance or a contract exists; this alone makes no runtime claim.
 - **Planned generation:** retained in the implementation inventory, with a linked capability ticket. It is not available until delivered.
-- **Verified executable support:** a specific release, selection and environment have passing creation/runtime evidence. None is claimed by this initial navigation catalog.
+- **Verified executable support:** a specific release, selection and environment have passing applicable creation/runtime evidence. Package `0.1.0` verifies only [microservices solution scaffolding](microservices-solution.md); it has no application runtime combination.
 - **Guidance-only:** useful architectural discussion outside initial executable scope; follow its deferred effort.
 
-All retained options below are documented selection guidance with planned implementation. Full option pages, actual generated project/test trees, exact commands and runtime evidence arrive with their capability tickets. Illustrative diagrams and trees describe responsibilities, not generated artifacts. [Deferred options](deferred.md) remain guidance-only.
+The [microservices solution page](microservices-solution.md) supplies its actual output tree, commands and bounded evidence. Other retained options remain documented guidance with planned implementation; their full pages, actual generated project/test trees and runtime evidence arrive with their capability tickets. Illustrative diagrams and trees elsewhere describe responsibilities. [Deferred options](deferred.md) remain guidance-only.
 
 ## Source precedence
 

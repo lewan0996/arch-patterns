@@ -1,0 +1,7 @@
+{
+  "name": "CatalogSystem toolchain",
+  "dockerComposeFile": "compose.yaml",
+  "service": "workspace",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose"
+}

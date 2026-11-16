@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "ArchPatterns contributors",
+  "classifications": ["Architecture", "Solution"],
+  "identity": "ArchPatterns.Solution",
+  "name": "Architecture catalog solution",
+  "description": "Host-free microservices workspace. Caller must provide a PascalCase name, namespace and nonexistent output directory. See the catalog preflight; never use --force.",
+  "shortName": "arch-solution",
+  "sourceName": "CatalogSystem",
+  "preferNameDirectory": true,
+  "tags": { "type": "solution" },
+  "symbols": {
+    "composition": {
+      "type": "parameter",
+      "datatype": "choice",
+      "isRequired": true,
+      "description": "Explicit system composition. Only microservices is implemented in 0.1.0.",
+      "choices": [{ "choice": "microservices", "description": "Independently deployed services; no system-wide host." }]
+    },
+    "rootNamespace": {
+      "type": "parameter",
+      "datatype": "text",
+      "isRequired": true,
+      "description": "C# namespace prefix with PascalCase segments, e.g. Acme.Commerce. Caller validates before generation.",
+      "replaces": "CatalogNamespace"
+    }
+  }
+}

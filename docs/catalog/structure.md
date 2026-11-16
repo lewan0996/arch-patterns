@@ -25,7 +25,7 @@ flowchart LR
     Edge --> ServiceB[Modular service deployable]
 ```
 
-**Support and source:** documented guidance; creation planned in [#59](https://github.com/lewan0996/arch-patterns/issues/59) for monoliths and [#56](https://github.com/lewan0996/arch-patterns/issues/56) for microservice solutions. The [combination decision](https://github.com/lewan0996/arch-patterns/issues/17#issuecomment-6241781558), subject to [current amendments](README.md#source-precedence), owns selection criteria and baselines. No verified runtime support is claimed.
+**Support and source:** [microservices solution scaffolding](microservices-solution.md) is implemented in local package 0.1.0 ([#56](https://github.com/lewan0996/arch-patterns/issues/56)); monolith creation remains planned in [#59](https://github.com/lewan0996/arch-patterns/issues/59). The [combination decision](https://github.com/lewan0996/arch-patterns/issues/17#issuecomment-6241781558), subject to [current amendments](README.md#source-precedence), owns selection criteria and baselines. No application runtime combination is verified.
 
 ## Client-facing composition
 

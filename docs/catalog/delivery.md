@@ -4,18 +4,18 @@
 
 ## Creation chains
 
-**Current support:** the following is the agreed future inventory. This repository does not yet contain an installable template package, creation-skill bundle or verified executable examples. Do not treat the names below as runnable commands. Exact syntax, release pins, configuration, integration instructions and checks belong to the linked capability tickets when delivered.
+**Current support:** local package `ArchPatterns.Templates` `0.1.0` implements only `arch-solution --composition microservices`, with a host-free solution and pinned Dev Container toolchain. Follow its [exact installation/preflight/integration/check instructions](microservices-solution.md) and [dependency/evidence review](../dependencies/template-increment.md). No service/module generation, creation-skill bundle or application runtime combination is verified yet. The rest of this inventory remains planned.
 
-| Selected structure | Planned native chain | Owning capability |
+| Selected structure | Native chain / status | Owning capability |
 | --- | --- | --- |
-| Microservices solution | `arch-solution` with explicit microservices composition; no system-wide host | [#56](https://github.com/lewan0996/arch-patterns/issues/56) |
+| Microservices solution | [Implemented in 0.1.0](microservices-solution.md): `arch-solution --composition microservices`; no system-wide host | [#56](https://github.com/lewan0996/arch-patterns/issues/56) |
 | Modular-monolith solution | `arch-solution` with explicit monolith composition creates public host; `arch-module` creates initial and later named modules | [#59](https://github.com/lewan0996/arch-patterns/issues/59) |
 | Flat service | `arch-service` with single-module layout creates API/host and sole module | [#57](https://github.com/lewan0996/arch-patterns/issues/57) |
 | Modular microservice | `arch-service` with modular layout, then `arch-module` for required initial module; same invocation chain for later modules | [#60](https://github.com/lewan0996/arch-patterns/issues/60) |
 | Browser BFF | `arch-bff` in a fresh component folder | [#68](https://github.com/lewan0996/arch-patterns/issues/68) |
 | Machine audience API | `arch-audience-api` in a fresh component folder | [#67](https://github.com/lewan0996/arch-patterns/issues/67) |
 
-One native NuGet template package exposes exactly these five entry points. There is no test, gateway or domain-editing generator. The [generation contract](https://github.com/lewan0996/arch-patterns/issues/14#issuecomment-5849731801) and [layout contract](https://github.com/lewan0996/arch-patterns/issues/28#issuecomment-6002994331) govern composition.
+The completed native NuGet template package will expose exactly these five entry points; later capabilities extend the same package. There is no test, gateway or domain-editing generator. The [generation contract](https://github.com/lewan0996/arch-patterns/issues/14#issuecomment-5849731801) and [layout contract](https://github.com/lewan0996/arch-patterns/issues/28#issuecomment-6002994331) govern composition.
 
 Require explicit composition, valid namespaces, unique PascalCase names, applicable selections, distinct fresh destinations and intended solution membership. Before each native invocation, reject occupied destinations and unsupported selections. A native template may add its newly generated projects to the intended solution; it makes no other edits to existing files. Ambiguous/nested solution discovery must not modify an unrelated solution. Provide precise manual integration instructions where automation is outside the contract. Adding a module to a flat service stops with a conversion prerequisite.
 
