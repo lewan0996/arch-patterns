@@ -2,7 +2,7 @@
 
 [Catalog](README.md) · [Selection route](selection.md) · Next: [Creation and evidence](delivery.md)
 
-These are selection summaries, not implementation recipes. Each retained choice links its source contract and planned capability. Exact configuration, integration steps and checks belong to those capability pages when implemented. All executable support below remains unverified.
+These are selection summaries, not implementation recipes. Each retained choice links its source contract and planned capability. Exact configuration, integration steps and checks belong to those capability pages when implemented. The [flat operational host](flat-service.md) and [anemic/direct-service PostgreSQL path](direct-service-postgresql.md) have bounded fixture evidence. Other executable capabilities remain planned.
 
 ## Persistence and reads
 

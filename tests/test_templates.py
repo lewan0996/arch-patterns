@@ -12,7 +12,7 @@ import unittest
 REPO = Path(__file__).resolve().parents[1]
 
 
-class InstalledTemplates(unittest.TestCase):
+class InstalledPackage(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.fixture = tempfile.TemporaryDirectory(prefix="arch-templates-")
@@ -43,14 +43,20 @@ class InstalledTemplates(unittest.TestCase):
             raise AssertionError(f"dotnet {' '.join(args)}\n{result.stdout}")
         return result.stdout
 
+
+class InstalledTemplates(InstalledPackage):
     def test_installed_package_is_discoverable_with_required_inputs_in_help(self):
         listing = self.run_cli("new", "list", "arch-")
         self.assertIn("arch-solution", listing)
-        for future_entry in ("arch-service", "arch-module", "arch-bff", "arch-audience-api"):
+        self.assertIn("arch-service", listing)
+        for future_entry in ("arch-module", "arch-bff", "arch-audience-api"):
             self.assertNotIn(future_entry, listing)
         help_text = self.run_cli("new", "arch-solution", "--help")
         for option in ("--composition", "microservices", "--rootNamespace"):
             self.assertIn(option, help_text)
+        service_help = self.run_cli("new", "arch-service", "--help")
+        for option in ("--rootNamespace", "--layout", "--domainModel", "--applicationFlow", "--database"):
+            self.assertIn(option, service_help)
 
     def test_microservices_workspace_has_toolchain_and_no_system_host(self):
         with tempfile.TemporaryDirectory(dir=self.root) as fixture:

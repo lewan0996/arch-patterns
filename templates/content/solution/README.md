@@ -2,7 +2,7 @@
 
 Composition: **microservices**. Root namespace prefix: **CatalogNamespace**.
 
-This is a host-free solution scaffold from ArchPatterns.Templates 0.1.0. Each
+This is a host-free solution scaffold from ArchPatterns.Templates 0.2.0. Each
 future service owns its deployment and data; no system-wide host is created.
 Domain shape and application flow are independent selections in each module.
 There is no application, database, broker or identity provider to run yet.
@@ -16,8 +16,8 @@ applications inside this container. The container runs as root for development;
 it is not a production image. No host SDK or global template installation is
 required. Install any later template package **inside this Dev Container**.
 
-Compose will also supply runtime dependencies when the relevant capability is
-implemented. Add only explicitly selected, pinned dependency services to this
+The generated service supplies a PostgreSQL Compose dependency; its README
+explains the deliberate merge with this toolchain. Add only explicitly selected, pinned dependency services to this
 Compose project and use their Compose service names as DNS names from the
 toolchain. `localhost` inside the toolchain refers to that container, not to a
 database container or the workstation. Dependencies do not belong in the
@@ -26,7 +26,7 @@ or Dev Containers client. There are no dependency services to start in this
 increment.
 
 External configuration belongs to its owning process. Later services use typed,
-startup-validated inputs such as `ConnectionStrings__Orders`; addresses and secret
+startup-validated inputs such as `Database__ConnectionString`; addresses and secret
 values come from the environment or externally mounted secret files. Keep local
 secret files outside source control, never embed credentials in images, and
 commit only sanitized configuration examples. The `.gitignore` excludes local
@@ -50,24 +50,27 @@ This proves scaffold validity only. It supplies no runtime or application-test
 evidence. There are no project references, module hooks or configuration inputs
 to wire at this stage.
 
-Service generation is the next capability:
-https://github.com/lewan0996/arch-patterns/issues/57. This package increment does
-not yet include `arch-service`, `arch-module`, `arch-bff` or `arch-audience-api`.
-Follow their exact release-specific creation/integration/check instructions when
-available. Use `CatalogNamespace` as the prefix and unique PascalCase boundary
-names. Before **each** native invocation, validate supported selections and check
-that its explicitly resolved output destination does not exist, including an
-empty directory or dangling symlink. Never use `--force`. Inspect failed partial
-output and handle it manually; do not assume that failure undid writes.
+This package includes a flat anemic/direct-service PostgreSQL service. Before
+invoking it, follow the catalog's flat-service preflight for names, supported
+selections, intended solution and a fresh destination. Then from this root:
 
-The intended solution is `CatalogSystem.slnx`. When adding future components,
-confirm that native solution discovery selects this exact, unambiguous file.
-If discovery is absent, ambiguous or unintended, follow the component's manual
-instructions and add its generated projects explicitly with
-`dotnet sln CatalogSystem.slnx add <generated-project-path>`. Native generation may
-only edit existing solution membership for newly generated projects; host,
-configuration and architecture-selection-record integration are separate steps.
-This increment edits no existing solution and creates no architecture.json.
+```bash
+dotnet new arch-service --name Orders --rootNamespace CatalogNamespace --layout single --domainModel anemic --applicationFlow direct-service --database postgresql --output src/Orders
+dotnet sln CatalogSystem.slnx add src/Orders/CatalogNamespace.Orders.*/*.csproj src/Orders/tests/*/*.csproj
+dotnet restore CatalogSystem.slnx
+dotnet build CatalogSystem.slnx --no-restore
+```
+
+Use unique PascalCase boundary names and the explicit CatalogNamespace prefix.
+Never use --force. Before each invocation reject occupied output (including an
+empty directory or dangling symlink) and unsupported selections; inspect partial
+work after failures and handle it manually. The service README explains its
+Compose dependency, external credentials, migrations, runtime and tests.
+`arch-service` performs no automatic solution discovery or post-actions: the
+explicit `sln add` above is deliberate manual integration. Generation edits only
+fresh output. Existing hosts, configuration and architecture-selection records
+are untouched. Modular services/modules, BFFs, audience APIs and creation skills
+remain planned. There is no generated architecture.json in this increment.
 
 The catalog selection route and current support limits are at
 https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/selection.md.

@@ -25,7 +25,7 @@ flowchart LR
     Edge --> ServiceB[Modular service deployable]
 ```
 
-**Support and source:** [microservices solution scaffolding](microservices-solution.md) is implemented in local package 0.1.0 ([#56](https://github.com/lewan0996/arch-patterns/issues/56)); monolith creation remains planned in [#59](https://github.com/lewan0996/arch-patterns/issues/59). The [combination decision](https://github.com/lewan0996/arch-patterns/issues/17#issuecomment-6241781558), subject to [current amendments](README.md#source-precedence), owns selection criteria and baselines. No application runtime combination is verified.
+**Support and source:** [microservices solution scaffolding](microservices-solution.md) is implemented in local package 0.2.0 ([#56](https://github.com/lewan0996/arch-patterns/issues/56)); monolith creation remains planned in [#59](https://github.com/lewan0996/arch-patterns/issues/59). The [combination decision](https://github.com/lewan0996/arch-patterns/issues/17#issuecomment-6241781558), subject to [current amendments](README.md#source-precedence), owns selection criteria and baselines. The [flat PostgreSQL service fixture](direct-service-postgresql.md) has bounded runtime evidence.
 
 ## Client-facing composition
 
@@ -76,4 +76,4 @@ The modular monolith uses the same separate-host/named-module organization. Depe
 
 **Generation/integration:** native `arch-service` selects flat or modular layout. Modular service creation is host creation followed by `arch-module` for its first module; later modules use the same chain. AI actions must resolve layout explicitly; native single-module is the default. Conversion from flat to modular is not automatic. See [creation boundaries](delivery.md#creation-chains).
 
-**Support and source:** [layout contract](https://github.com/lewan0996/arch-patterns/issues/28#issuecomment-6002994331); planned [flat #57](https://github.com/lewan0996/arch-patterns/issues/57) and [modular #60](https://github.com/lewan0996/arch-patterns/issues/60). No generated tree or passing executable fixture is asserted here.
+**Support and source:** [layout contract](https://github.com/lewan0996/arch-patterns/issues/28#issuecomment-6002994331); [implemented flat service and actual tree](flat-service.md); modular generation remains planned in [#60](https://github.com/lewan0996/arch-patterns/issues/60).

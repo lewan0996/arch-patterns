@@ -1,20 +1,30 @@
-# ArchPatterns.Templates 0.1.0
+# ArchPatterns.Templates 0.2.0
 
-Native .NET architecture catalog templates. This increment provides only
-`arch-solution --composition microservices`: a host-free solution scaffold with
-a pinned .NET SDK 10.0.401 Dev Container toolchain.
+One native package currently provides:
 
-Install the local `.nupkg` inside a Dev Container using a disposable
-`DOTNET_CLI_HOME`. No global workstation installation is required. Run
-`dotnet new list arch-` and `dotnet new arch-solution --help` after installation.
+- `arch-solution --composition microservices`: host-free solution and pinned Dev Container.
+- `arch-service --layout single --domainModel anemic --applicationFlow direct-service --database postgresql`:
+  five-project flat service, operational baseline, PostgreSQL context/mapping hooks,
+  separate boundary-owned tests, portable container and explicit migration tooling.
 
-Before generation, validate a unique PascalCase `--name`, a root namespace with
-PascalCase segments, the explicit composition, and an explicit `--output` whose
-destination does not exist, even as an empty directory or dangling symlink.
-Never use `--force`. Native templates do not enforce all caller prerequisites.
+Install this local package in a disposable CLI home inside a Dev Container:
 
-Follow the [complete installation, preflight and check instructions](https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/microservices-solution.md).
-The generated README supplies manual integration and external configuration
-conventions. No restore or scripts run automatically. Service/module generation,
-other compositions, creation skills and application runtime evidence remain
-planned; later capabilities extend this same package.
+```bash
+dotnet new install ./ArchPatterns.Templates.0.2.0.nupkg
+dotnet new list arch-
+dotnet new arch-service --help
+```
+
+Both commands require explicit PascalCase names, root namespaces and distinct
+nonexistent output destinations. Follow the catalog caller preflight; never use
+`--force`. Generation has no automatic solution discovery, restore or scripts;
+service users explicitly add new projects to their intended solution.
+
+Full instructions: [solution](https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/microservices-solution.md),
+[flat service](https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/flat-service.md),
+[PostgreSQL direct services](https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/direct-service-postgresql.md).
+
+Modular hosts/modules, client-facing components, security, dispatch, messaging,
+creation skills and complete system examples remain planned. Installed-package,
+Linux OCI and real PostgreSQL fixture evidence is bounded by the catalog review;
+this local package is not the complete certified catalog release.

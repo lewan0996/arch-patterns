@@ -6,14 +6,14 @@
 
 ## Package increment
 
-`ArchPatterns.Templates` version `0.1.0` contains `arch-solution` with the single implemented composition `microservices`. The remaining composition and four entry points are planned in the [delivery inventory](delivery.md#creation-chains). Later tickets extend this package. There is no generation wrapper.
+`ArchPatterns.Templates` version `0.2.0` contains `arch-solution` with the single implemented composition `microservices`. It also provides [flat service creation](flat-service.md) with [PostgreSQL direct-service persistence](direct-service-postgresql.md). The remaining composition and three entry points are planned in the [delivery inventory](delivery.md#creation-chains). Later tickets extend this package. There is no generation wrapper.
 
 Build and install the local artifact from the catalog checkout **inside a Dev Container** with .NET SDK `10.0.401`. Keep installation disposable even there; do not install templates globally on the workstation:
 
 ```bash
 export DOTNET_CLI_HOME="$(mktemp -d)"
 dotnet pack templates/ArchPatterns.Templates.csproj --configuration Release --output artifacts/packages
-dotnet new install ./artifacts/packages/ArchPatterns.Templates.0.1.0.nupkg
+dotnet new install ./artifacts/packages/ArchPatterns.Templates.0.2.0.nupkg
 dotnet new list arch-
 dotnet new arch-solution --help
 ```
@@ -84,7 +84,7 @@ dotnet restore Commerce.slnx
 dotnet build Commerce.slnx --no-restore
 ```
 
-The empty solution has no projects to restore or compile; MSBuild may warn accordingly. This checks scaffold validity, not application behavior. Service generation and meaningful application build/runtime checks begin with [#57](https://github.com/lewan0996/arch-patterns/issues/57). Do not create a placeholder application merely to make this check nonempty.
+The empty solution has no projects to restore or compile; MSBuild may warn accordingly. This checks scaffold validity, not application behavior. Continue with [flat service generation and its meaningful checks](flat-service.md). Do not create a placeholder application merely to make this check nonempty.
 
 The catalog's disposable installed-package checks run with Python 3 and the pinned SDK:
 

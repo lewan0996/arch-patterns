@@ -4,13 +4,18 @@
 
 ## Creation chains
 
-**Current support:** local package `ArchPatterns.Templates` `0.1.0` implements only `arch-solution --composition microservices`, with a host-free solution and pinned Dev Container toolchain. Follow its [exact installation/preflight/integration/check instructions](microservices-solution.md) and [dependency/evidence review](../dependencies/template-increment.md). No service/module generation, creation-skill bundle or application runtime combination is verified yet. The rest of this inventory remains planned.
+**Current support:** local package `ArchPatterns.Templates` `0.2.0` implements
+[host-free microservices solutions](microservices-solution.md), [flat services](flat-service.md)
+with the operational baseline, and [anemic/direct-service PostgreSQL persistence](direct-service-postgresql.md).
+Installed-package, Linux OCI and real PostgreSQL fixture checks cover those paths;
+see the [dependency/evidence review](../dependencies/service-increment.md). Modular
+and client-facing components, creation skills and complete system examples remain planned.
 
 | Selected structure | Native chain / status | Owning capability |
 | --- | --- | --- |
-| Microservices solution | [Implemented in 0.1.0](microservices-solution.md): `arch-solution --composition microservices`; no system-wide host | [#56](https://github.com/lewan0996/arch-patterns/issues/56) |
+| Microservices solution | [Implemented in 0.2.0](microservices-solution.md): `arch-solution --composition microservices`; no system-wide host | [#56](https://github.com/lewan0996/arch-patterns/issues/56) |
 | Modular-monolith solution | `arch-solution` with explicit monolith composition creates public host; `arch-module` creates initial and later named modules | [#59](https://github.com/lewan0996/arch-patterns/issues/59) |
-| Flat service | `arch-service` with single-module layout creates API/host and sole module | [#57](https://github.com/lewan0996/arch-patterns/issues/57) |
+| Flat service | [Implemented in 0.2.0](flat-service.md): `arch-service --layout single --domainModel anemic --applicationFlow direct-service --database postgresql` | [#57](https://github.com/lewan0996/arch-patterns/issues/57) |
 | Modular microservice | `arch-service` with modular layout, then `arch-module` for required initial module; same invocation chain for later modules | [#60](https://github.com/lewan0996/arch-patterns/issues/60) |
 | Browser BFF | `arch-bff` in a fresh component folder | [#68](https://github.com/lewan0996/arch-patterns/issues/68) |
 | Machine audience API | `arch-audience-api` in a fresh component folder | [#67](https://github.com/lewan0996/arch-patterns/issues/67) |

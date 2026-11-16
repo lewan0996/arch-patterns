@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "ArchPatterns contributors",
+  "classifications": [
+    "Architecture",
+    "Service"
+  ],
+  "identity": "ArchPatterns.Service",
+  "name": "Architecture catalog single-module service",
+  "shortName": "arch-service",
+  "description": "Flat five-project service. Caller validates fresh output and names. Explicit manual solution integration; no restore or scripts.",
+  "sourceName": "CatalogService",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "layout": {
+      "type": "parameter",
+      "datatype": "choice",
+      "defaultValue": "single",
+      "choices": [
+        {
+          "choice": "single",
+          "description": "API owns host startup and the sole module."
+        }
+      ]
+    },
+    "rootNamespace": {
+      "type": "parameter",
+      "datatype": "text",
+      "isRequired": true,
+      "replaces": "CatalogNamespace",
+      "fileRename": "CatalogNamespace",
+      "description": "Explicit PascalCase namespace prefix; caller validates."
+    },
+    "domainModel": {
+      "type": "parameter",
+      "datatype": "choice",
+      "isRequired": true,
+      "choices": [
+        {
+          "choice": "anemic",
+          "description": "Only this profile is implemented in this increment."
+        }
+      ]
+    },
+    "applicationFlow": {
+      "type": "parameter",
+      "datatype": "choice",
+      "isRequired": true,
+      "choices": [
+        {
+          "choice": "direct-service",
+          "description": "Only this profile is implemented in this increment."
+        }
+      ]
+    },
+    "database": {
+      "type": "parameter",
+      "datatype": "choice",
+      "isRequired": true,
+      "choices": [
+        {
+          "choice": "postgresql",
+          "description": "Only this profile is implemented in this increment."
+        }
+      ]
+    }
+  }
+}

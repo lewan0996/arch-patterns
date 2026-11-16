@@ -26,9 +26,9 @@ flowchart LR
     Consumer[Other boundary] --> Contract
 ```
 
-Dependencies point inward. API references Infrastructure for composition. Consumers use published contracts and boundary adapters, not another module's context, tables or internal implementation. HTTP DTOs and public messages are distinct responsibilities. See the [illustrative project tree](structure.md#deployable-layout); actual project/test trees and registration instructions arrive with generated capabilities.
+Dependencies point inward. API references Infrastructure for composition. Consumers use published contracts and boundary adapters, not another module's context, tables or internal implementation. HTTP DTOs and public messages are distinct responsibilities. See the [illustrative project tree](structure.md#deployable-layout); the [flat service page](flat-service.md) supplies its actual project/test tree and integration instructions.
 
-**Compatibility/support:** these responsibilities apply to every retained domain/flow pair. Sources: [structure decision](https://github.com/lewan0996/arch-patterns/issues/6), [module decision](https://github.com/lewan0996/arch-patterns/issues/8), [layout contract](https://github.com/lewan0996/arch-patterns/issues/28#issuecomment-6002994331). Planned delivery starts with [#57](https://github.com/lewan0996/arch-patterns/issues/57) and [#59](https://github.com/lewan0996/arch-patterns/issues/59); conceptual dependency diagrams are not architecture-test evidence.
+**Compatibility/support:** these responsibilities apply to every retained domain/flow pair. Sources: [structure decision](https://github.com/lewan0996/arch-patterns/issues/6), [module decision](https://github.com/lewan0996/arch-patterns/issues/8), [layout contract](https://github.com/lewan0996/arch-patterns/issues/28#issuecomment-6002994331). [Flat service generation and checks](flat-service.md) are implemented; modular delivery remains planned in [#59](https://github.com/lewan0996/arch-patterns/issues/59).
 
 ## Domain model
 
@@ -39,7 +39,7 @@ Dependencies point inward. API references Infrastructure for composition. Consum
 
 Domain shape is independent of topology and invocation. Rich models do not require CQRS. Read models are query shapes, not necessarily domain models. Do not expose aggregates as transport contracts merely to reuse their shape.
 
-**Source and support:** [persistence decision](https://github.com/lewan0996/arch-patterns/issues/7#issuecomment-5751875474); planned [anemic/direct-service #58](https://github.com/lewan0996/arch-patterns/issues/58), [rich/direct-service #61](https://github.com/lewan0996/arch-patterns/issues/61), and [rich/CQRS #63](https://github.com/lewan0996/arch-patterns/issues/63). Follow those tickets for full option pages and meaningful generated checks.
+**Source and support:** [persistence decision](https://github.com/lewan0996/arch-patterns/issues/7#issuecomment-5751875474); implemented [anemic/direct-service PostgreSQL](direct-service-postgresql.md); planned [rich/direct-service #61](https://github.com/lewan0996/arch-patterns/issues/61), and [rich/CQRS #63](https://github.com/lewan0996/arch-patterns/issues/63). Follow those tickets for full option pages and meaningful generated checks.
 
 ## Application flow
 
@@ -54,7 +54,7 @@ CQRS uses Wolverine dispatch with explicit allowed-handler registration, missing
 
 Both paths require [authorization at the use-case boundary](runtime.md#identity-and-authorization). Neither CQRS nor direct-service invocation changes deployment boundaries or permits cross-owner table access.
 
-**Sources and support:** [profile contract](https://github.com/lewan0996/arch-patterns/issues/18#issuecomment-5849516623), controlled by the [final Wolverine decision](https://github.com/lewan0996/arch-patterns/issues/52#issuecomment-6900052949). CQRS generation is planned in [#62](https://github.com/lewan0996/arch-patterns/issues/62) and [#63](https://github.com/lewan0996/arch-patterns/issues/63); no dispatch/runtime evidence exists in this catalog.
+**Sources and support:** [profile contract](https://github.com/lewan0996/arch-patterns/issues/18#issuecomment-5849516623), controlled by the [final Wolverine decision](https://github.com/lewan0996/arch-patterns/issues/52#issuecomment-6900052949). CQRS generation is planned in [#62](https://github.com/lewan0996/arch-patterns/issues/62) and [#63](https://github.com/lewan0996/arch-patterns/issues/63); no CQRS dispatch/runtime evidence exists in this catalog.
 
 ## Compatible combinations
 
@@ -62,7 +62,7 @@ These four combinations are conceptually compatible in a modular monolith, flat 
 
 | Domain / flow | Example or variation | What changes |
 | --- | --- | --- |
-| Anemic / direct-service | Both [planned baselines](delivery.md#examples-and-evidence); [#58](https://github.com/lewan0996/arch-patterns/issues/58) | CRUD behavior in Application capability services |
+| Anemic / direct-service | [Verified flat PostgreSQL fixture](direct-service-postgresql.md); both complete baselines remain planned | CRUD behavior in Application capability services |
 | Rich / CQRS | Both planned baselines; [#63](https://github.com/lewan0996/arch-patterns/issues/63) | Aggregate behavior, separate reads, explicit Wolverine dispatch/effects |
 | Rich / direct-service | Focused variation; [#61](https://github.com/lewan0996/arch-patterns/issues/61) | Keep aggregates and separate reads, invoke capability services |
 | Anemic / CQRS | Focused variation; [#62](https://github.com/lewan0996/arch-patterns/issues/62) | Keep data-only model, separate requests and isolated handlers |

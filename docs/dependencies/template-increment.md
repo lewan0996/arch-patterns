@@ -1,5 +1,8 @@
 # Template package 0.1.0 dependency and evidence review
 
+Historical 0.1.0 review; see the [0.2.0 service/graph review](service-increment.md)
+for current executable support.
+
 Reviewed 2026-11-16 for [#56](https://github.com/lewan0996/arch-patterns/issues/56).
 Scope: native package installation and a host-free microservices solution on
 Linux. This is an incremental local package, not the completed catalog release.

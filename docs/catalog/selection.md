@@ -35,7 +35,7 @@ flowchart TD
 6. [Choose credentials and authorization](runtime.md#identity-and-authorization) at each entry point and protected use-case boundary. Identify user versus application authority and fail-closed rules before designing protected work.
 7. [Choose fact routes and local copies](runtime.md#communication-and-consistency). A publisher's state and outgoing fact commit together; each subscriber commits independently. Specify recovery, idempotency and freshness where needed.
 8. Apply the [operational baseline](runtime.md#operational-baseline) to every deployable and select bounded HTTP behavior for each remote call.
-9. Write the explicit selections below. Follow the [native chains and AI integration contract](delivery.md#creation-chains), [examples](delivery.md#examples-and-evidence) and required checks. The first available chain is the [host-free microservices solution](microservices-solution.md), with installation confined to a Dev Container/disposable CLI home. If a capability is still planned, continue to its owning ticket; this route does not certify it as runnable.
+9. Write the explicit selections below. Follow the [native chains and AI integration contract](delivery.md#creation-chains), [examples](delivery.md#examples-and-evidence) and required checks. Available chains include the [host-free microservices solution](microservices-solution.md), [flat service](flat-service.md) and [PostgreSQL profile](direct-service-postgresql.md), with installation confined to a Dev Container/disposable CLI home. If a capability is still planned, continue to its owning ticket; this route does not certify it as runnable.
 
 ## Selection worksheet
 

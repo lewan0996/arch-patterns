@@ -14,7 +14,7 @@
       "type": "parameter",
       "datatype": "choice",
       "isRequired": true,
-      "description": "Explicit system composition. Only microservices is implemented in 0.1.0.",
+      "description": "Explicit system composition. Only microservices is implemented in 0.2.0.",
       "choices": [{ "choice": "microservices", "description": "Independently deployed services; no system-wide host." }]
     },
     "rootNamespace": {
