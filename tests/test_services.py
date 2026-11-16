@@ -147,7 +147,7 @@ await app.RunAsync();'''))
             cases = [("service_name=Orders", "service_name=bad-name"),
                      ("root_namespace=Acme", "root_namespace=Acme.bad-name"),
                      ("layout=single", "layout=modular"),
-                     ("domain_model=anemic", "domain_model=rich"),
+                     ("domain_model=anemic", "domain_model=unknown"),
                      ("application_flow=direct-service", "application_flow=cqrs"),
                      ("database=postgresql", "database=sql-server"),
                      ('intended_solution="$PWD/Commerce.slnx"', 'intended_solution="$PWD/missing.slnx"')]

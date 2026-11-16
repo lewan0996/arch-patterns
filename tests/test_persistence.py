@@ -21,7 +21,7 @@ class PersistenceTemplates(InstalledPackage):
             self.run_cli("build", str(service / "Acme.Orders.API"), "--warnaserror")
 
     def test_missing_and_unsupported_profiles_fail_without_files(self):
-        cases = [[], ["--domainModel", "rich", "--applicationFlow", "direct-service", "--database", "postgresql"],
+        cases = [[], ["--domainModel", "unknown", "--applicationFlow", "direct-service", "--database", "postgresql"],
                  ["--domainModel", "anemic", "--applicationFlow", "cqrs", "--database", "postgresql"],
                  ["--domainModel", "anemic", "--applicationFlow", "direct-service", "--database", "sql-server"]]
         for args in cases:

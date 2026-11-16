@@ -13,9 +13,10 @@ Domain richness and application flow are independent architecture decisions.
 
 Use the same locally built `ArchPatterns.Templates` package and disposable CLI
 home as [solution creation](microservices-solution.md). `arch-service` implements
-only `--layout single` (also the native default), with explicit `--domainModel anemic`,
+only `--layout single` (also the native default), with explicit `--domainModel anemic` or `--domainModel rich`,
 `--applicationFlow direct-service` and `--database postgresql`. See the
-[PostgreSQL profile and migration route](direct-service-postgresql.md). Namespace prefixes and names
+[PostgreSQL profile and migration route](direct-service-postgresql.md) and
+[rich/direct-service variation](rich-direct-service.md). Namespace prefixes and names
 use the same ASCII PascalCase rules as the solution. Choose a unique service
 name, explicit prefix and fresh output; never use `--force`. These validations
 are caller prerequisites, not promises made by the native template engine.
@@ -35,7 +36,7 @@ From the intended system directory, use this preflight before every invocation:
   destination="$PWD/src/Orders"
   [[ "$service_name" =~ ^[A-Z][A-Za-z0-9]*$ ]] || exit 1
   [[ "$root_namespace" =~ ^[A-Z][A-Za-z0-9]*(\.[A-Z][A-Za-z0-9]*)*$ ]] || exit 1
-  [[ "$domain_model" == anemic && "$application_flow" == direct-service && "$database" == postgresql ]] || exit 1
+  [[ ( "$domain_model" == anemic || "$domain_model" == rich ) && "$application_flow" == direct-service && "$database" == postgresql ]] || exit 1
   [[ "$layout" == single ]] || { echo 'Unsupported layout' >&2; exit 1; }
   [[ -f "$intended_solution" ]] || { echo 'Select an existing intended solution' >&2; exit 1; }
   dotnet sln "$intended_solution" list >/dev/null

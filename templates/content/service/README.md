@@ -59,9 +59,10 @@ preflight, exact support and verification limits before generation.
 
 ## Selected persistence profile
 
-This boundary explicitly selects anemic domain, direct-service application flow
-and PostgreSQL. Domain entities hold data; capability-oriented Application
-interfaces expose separate command and query methods. Keep reuse acyclic.
+This boundary explicitly selects CatalogDomainModel domain, direct-service application flow
+and PostgreSQL. The Application README describes the selected write-model rules.
+Capability-oriented Application interfaces expose separate command and query
+methods. Keep reuse acyclic.
 Application owns capability-specific persistence/read contracts; Infrastructure
 implements them. Public read shapes belong to Contract, HTTP DTOs remain in API.
 No sample business service or endpoint is installed by generation.

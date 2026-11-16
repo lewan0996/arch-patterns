@@ -42,9 +42,14 @@
       "choices": [
         {
           "choice": "anemic",
-          "description": "Only this profile is implemented in this increment."
+          "description": "Data-only domain; behavior in Application services."
+        },
+        {
+          "choice": "rich",
+          "description": "Aggregate behavior; Application-owned aggregate-root repositories and separate reads."
         }
-      ]
+      ],
+      "replaces": "CatalogDomainModel"
     },
     "applicationFlow": {
       "type": "parameter",
@@ -68,5 +73,27 @@
         }
       ]
     }
-  }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(domainModel == \"rich\")",
+          "exclude": [
+            "CatalogNamespace.CatalogService.Application/README.md"
+          ],
+          "rename": {
+            "CatalogNamespace.CatalogService.Application/README.rich.md": "CatalogNamespace.CatalogService.Application/README.md",
+            "CatalogNamespace.CatalogService.Domain/README.rich.md": "CatalogNamespace.CatalogService.Domain/README.md"
+          }
+        },
+        {
+          "condition": "(domainModel != \"rich\")",
+          "exclude": [
+            "**/README.rich.md"
+          ]
+        }
+      ]
+    }
+  ]
 }

@@ -6,6 +6,7 @@ One native package currently provides:
 - `arch-service --layout single --domainModel anemic --applicationFlow direct-service --database postgresql`:
   five-project flat service, operational baseline, PostgreSQL context/mapping hooks,
   separate boundary-owned tests, portable container and explicit migration tooling.
+  Select `--domainModel rich` independently for aggregate ownership and separate reads.
 
 Install this local package in a disposable CLI home inside a Dev Container:
 
@@ -22,7 +23,8 @@ service users explicitly add new projects to their intended solution.
 
 Full instructions: [solution](https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/microservices-solution.md),
 [flat service](https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/flat-service.md),
-[PostgreSQL direct services](https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/direct-service-postgresql.md).
+[PostgreSQL direct services](https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/direct-service-postgresql.md),
+[rich/direct-service variation](https://github.com/lewan0996/arch-patterns/blob/main/docs/catalog/rich-direct-service.md).
 
 Modular hosts/modules, client-facing components, security, dispatch, messaging,
 creation skills and complete system examples remain planned. Installed-package,

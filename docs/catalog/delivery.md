@@ -34,7 +34,7 @@ An explicit named invocation or natural-language action request may select a cre
 | --- | --- | --- |
 | Modular-monolith baseline | One public host, anemic/direct-service and rich/CQRS named modules; owned data/contracts and asynchronous independent module transactions | [#85](https://github.com/lewan0996/arch-patterns/issues/85) |
 | Microservice-system baseline | Independently deployed flat and modular services, initial/additional modules, both baseline profiles, applicable BFF/audience API, committed facts and recoverable local copy | [#86](https://github.com/lewan0996/arch-patterns/issues/86) |
-| Rich/direct-service variation | Aggregate behavior and separate reads with capability-service invocation | [#61](https://github.com/lewan0996/arch-patterns/issues/61) |
+| Rich/direct-service variation | [Implemented PostgreSQL variation](rich-direct-service.md): aggregate behavior and separate reads with capability-service invocation | [#61](https://github.com/lewan0996/arch-patterns/issues/61) |
 | Anemic/CQRS variation | Data-only domain with explicit command/query dispatch | [#62](https://github.com/lewan0996/arch-patterns/issues/62) |
 | SQL Server variation | Provider/migrations and persistence/messaging proof | [#76](https://github.com/lewan0996/arch-patterns/issues/76), [#77](https://github.com/lewan0996/arch-patterns/issues/77), [#78](https://github.com/lewan0996/arch-patterns/issues/78) |
 | Dapper variation | Query tooling changes without changing flow profile | [#79](https://github.com/lewan0996/arch-patterns/issues/79) |

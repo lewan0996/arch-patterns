@@ -39,7 +39,7 @@ Dependencies point inward. API references Infrastructure for composition. Consum
 
 Domain shape is independent of topology and invocation. Rich models do not require CQRS. Read models are query shapes, not necessarily domain models. Do not expose aggregates as transport contracts merely to reuse their shape.
 
-**Source and support:** [persistence decision](https://github.com/lewan0996/arch-patterns/issues/7#issuecomment-5751875474); implemented [anemic/direct-service PostgreSQL](direct-service-postgresql.md); planned [rich/direct-service #61](https://github.com/lewan0996/arch-patterns/issues/61), and [rich/CQRS #63](https://github.com/lewan0996/arch-patterns/issues/63). Follow those tickets for full option pages and meaningful generated checks.
+**Source and support:** [persistence decision](https://github.com/lewan0996/arch-patterns/issues/7#issuecomment-5751875474); implemented [anemic/direct-service PostgreSQL](direct-service-postgresql.md); implemented [rich/direct-service variation](rich-direct-service.md), and planned [rich/CQRS #63](https://github.com/lewan0996/arch-patterns/issues/63). Follow those tickets for full option pages and meaningful generated checks.
 
 ## Application flow
 
@@ -64,7 +64,7 @@ These four combinations are conceptually compatible in a modular monolith, flat 
 | --- | --- | --- |
 | Anemic / direct-service | [Verified flat PostgreSQL fixture](direct-service-postgresql.md); both complete baselines remain planned | CRUD behavior in Application capability services |
 | Rich / CQRS | Both planned baselines; [#63](https://github.com/lewan0996/arch-patterns/issues/63) | Aggregate behavior, separate reads, explicit Wolverine dispatch/effects |
-| Rich / direct-service | Focused variation; [#61](https://github.com/lewan0996/arch-patterns/issues/61) | Keep aggregates and separate reads, invoke capability services |
+| Rich / direct-service | [Verified PostgreSQL variation](rich-direct-service.md) | Keep aggregates and separate reads, invoke capability services |
 | Anemic / CQRS | Focused variation; [#62](https://github.com/lewan0996/arch-patterns/issues/62) | Keep data-only model, separate requests and isolated handlers |
 
 Compatibility for an arbitrary technology combination remains unresolved until its prerequisites and evidence are established. Continue with [persistence and reads](runtime.md#persistence-and-reads).
