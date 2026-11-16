@@ -25,7 +25,7 @@ flowchart LR
     Edge --> ServiceB[Modular service deployable]
 ```
 
-**Support and source:** [microservices solution scaffolding](microservices-solution.md) is implemented in local package 0.2.0 ([#56](https://github.com/lewan0996/arch-patterns/issues/56)); monolith creation remains planned in [#59](https://github.com/lewan0996/arch-patterns/issues/59). The [combination decision](https://github.com/lewan0996/arch-patterns/issues/17#issuecomment-6241781558), subject to [current amendments](README.md#source-precedence), owns selection criteria and baselines. The [flat PostgreSQL service fixture](direct-service-postgresql.md) has bounded runtime evidence.
+**Support and source:** [microservices solution scaffolding](microservices-solution.md) is implemented in local package 0.2.0 ([#56](https://github.com/lewan0996/arch-patterns/issues/56)); [modular-monolith creation and named modules](modular-monolith.md) are implemented in the combined 0.3.0 increment ([#59](https://github.com/lewan0996/arch-patterns/issues/59)). The [combination decision](https://github.com/lewan0996/arch-patterns/issues/17#issuecomment-6241781558), subject to [current amendments](README.md#source-precedence), owns selection criteria and baselines. The [flat PostgreSQL service fixture](direct-service-postgresql.md) has bounded runtime evidence.
 
 ## Client-facing composition
 
@@ -33,7 +33,7 @@ flowchart LR
 
 | Option / scope | Choose when | Reconsider / constraints | Planned delivery |
 | --- | --- | --- | --- |
-| Public monolith host / system | Modules share the public host | Separate BFF only with an explicit client need; not required by baseline | [Host #59](https://github.com/lewan0996/arch-patterns/issues/59), [browser sessions #69](https://github.com/lewan0996/arch-patterns/issues/69) |
+| Public monolith host / system | Modules share the public host | Separate BFF only with an explicit client need; not required by baseline | [Implemented host](modular-monolith.md), [browser sessions #69](https://github.com/lewan0996/arch-patterns/issues/69) |
 | Browser BFF / client boundary | Browser needs a session-owning API and server-side tokens | Additional boundary is unnecessary for ordinary monolith browser hosting | [#68](https://github.com/lewan0996/arch-patterns/issues/68) |
 | Machine audience API / client boundary | Machine clients need their audience's API | Avoid exposing internal service selection to each client | [#67](https://github.com/lewan0996/arch-patterns/issues/67) |
 | Shared gateway / system | Shared routing behind client-facing APIs has a benefit | Adds a hop and operations; authentication responsibilities require their own selection | [Guidance-only #40](deferred.md) |

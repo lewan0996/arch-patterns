@@ -30,3 +30,5 @@ Modular hosts/modules, client-facing components, security, dispatch, messaging,
 creation skills and complete system examples remain planned. Installed-package,
 Linux OCI and real PostgreSQL fixture evidence is bounded by the catalog review;
 this local package is not the complete certified catalog release.
+
+The combined 0.3.0 increment also implements `arch-solution --composition modular-monolith` and `arch-module` for anemic/direct-service PostgreSQL named modules, using deliberate manual host/solution integration. See [the modular-monolith guide](../docs/catalog/modular-monolith.md) for supported creation, generated output and runtime evidence.

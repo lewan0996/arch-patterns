@@ -8,13 +8,12 @@
 [host-free microservices solutions](microservices-solution.md), [flat services](flat-service.md)
 with the operational baseline, and [anemic/direct-service PostgreSQL persistence](direct-service-postgresql.md).
 Installed-package, Linux OCI and real PostgreSQL fixture checks cover those paths;
-see the [dependency/evidence review](../dependencies/service-increment.md). Modular
-and client-facing components, creation skills and complete system examples remain planned.
+see the [dependency/evidence review](../dependencies/service-increment.md). The combined `0.3.0` increment adds [modular-monolith hosts and named modules](modular-monolith.md). Modular-service creation, client-facing components, creation skills and complete system examples remain planned.
 
 | Selected structure | Native chain / status | Owning capability |
 | --- | --- | --- |
 | Microservices solution | [Implemented in 0.2.0](microservices-solution.md): `arch-solution --composition microservices`; no system-wide host | [#56](https://github.com/lewan0996/arch-patterns/issues/56) |
-| Modular-monolith solution | `arch-solution` with explicit monolith composition creates public host; `arch-module` creates initial and later named modules | [#59](https://github.com/lewan0996/arch-patterns/issues/59) |
+| Modular-monolith solution | [Implemented modular-monolith chain](modular-monolith.md): explicit composition creates the public host; `arch-module` creates initial/later named modules with manual integration | [#59](https://github.com/lewan0996/arch-patterns/issues/59) |
 | Flat service | [Implemented in 0.2.0](flat-service.md): `arch-service --layout single --domainModel anemic --applicationFlow direct-service --database postgresql` | [#57](https://github.com/lewan0996/arch-patterns/issues/57) |
 | Modular microservice | `arch-service` with modular layout, then `arch-module` for required initial module; same invocation chain for later modules | [#60](https://github.com/lewan0996/arch-patterns/issues/60) |
 | Browser BFF | `arch-bff` in a fresh component folder | [#68](https://github.com/lewan0996/arch-patterns/issues/68) |

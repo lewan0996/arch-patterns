@@ -49,7 +49,8 @@ class InstalledTemplates(InstalledPackage):
         listing = self.run_cli("new", "list", "arch-")
         self.assertIn("arch-solution", listing)
         self.assertIn("arch-service", listing)
-        for future_entry in ("arch-module", "arch-bff", "arch-audience-api"):
+        self.assertIn("arch-module", listing)
+        for future_entry in ("arch-bff", "arch-audience-api"):
             self.assertNotIn(future_entry, listing)
         help_text = self.run_cli("new", "arch-solution", "--help")
         for option in ("--composition", "microservices", "--rootNamespace"):
@@ -96,7 +97,7 @@ class InstalledTemplates(InstalledPackage):
             cases = (
                 (["--rootNamespace", "Acme"], "composition"),
                 (["--composition", "microservices"], "rootNamespace"),
-                (["--rootNamespace", "Acme", "--composition", "modular-monolith"], "composition"),
+
                 (["--rootNamespace", "Acme", "--composition", "unknown"], "composition"),
             )
             for index, (inputs, diagnostic) in enumerate(cases):

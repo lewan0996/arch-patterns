@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../CatalogNamespace.CatalogService.Domain/CatalogNamespace.CatalogService.Domain.csproj" />
+    <ProjectReference Include="../CatalogNamespace.CatalogService.Contract/CatalogNamespace.CatalogService.Contract.csproj" />
+  </ItemGroup>
+</Project>

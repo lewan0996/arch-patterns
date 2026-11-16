@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "ArchPatterns contributors",
+  "classifications": [
+    "Architecture",
+    "Module"
+  ],
+  "identity": "ArchPatterns.Module",
+  "name": "Architecture catalog named module",
+  "shortName": "arch-module",
+  "description": "Five-project named module with registration and endpoint hooks. Requires a modular host; caller checks layout, names and fresh output. Manual host integration only.",
+  "sourceName": "CatalogService",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "rootNamespace": {
+      "type": "parameter",
+      "datatype": "text",
+      "isRequired": true,
+      "replaces": "CatalogNamespace",
+      "fileRename": "CatalogNamespace",
+      "description": "Explicit PascalCase namespace prefix; caller validates."
+    },
+    "domainModel": {
+      "type": "parameter",
+      "datatype": "choice",
+      "isRequired": true,
+      "choices": [
+        {
+          "choice": "anemic",
+          "description": "Only this profile is implemented in this increment."
+        }
+      ]
+    },
+    "applicationFlow": {
+      "type": "parameter",
+      "datatype": "choice",
+      "isRequired": true,
+      "choices": [
+        {
+          "choice": "direct-service",
+          "description": "Only this profile is implemented in this increment."
+        }
+      ]
+    },
+    "database": {
+      "type": "parameter",
+      "datatype": "choice",
+      "isRequired": true,
+      "choices": [
+        {
+          "choice": "postgresql",
+          "description": "Only this profile is implemented in this increment."
+        }
+      ]
+    }
+  }
+}

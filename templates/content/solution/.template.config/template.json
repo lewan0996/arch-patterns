@@ -1,28 +1,55 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "ArchPatterns contributors",
-  "classifications": ["Architecture", "Solution"],
+  "classifications": [
+    "Architecture",
+    "Solution"
+  ],
   "identity": "ArchPatterns.Solution",
   "name": "Architecture catalog solution",
-  "description": "Host-free microservices workspace. Caller must provide a PascalCase name, namespace and nonexistent output directory. See the catalog preflight; never use --force.",
+  "description": "Explicit microservices or modular-monolith workspace. Caller validates fresh output, names and namespace. No restore or scripts.",
   "shortName": "arch-solution",
   "sourceName": "CatalogSystem",
   "preferNameDirectory": true,
-  "tags": { "type": "solution" },
+  "tags": {
+    "type": "solution"
+  },
   "symbols": {
     "composition": {
       "type": "parameter",
       "datatype": "choice",
       "isRequired": true,
-      "description": "Explicit system composition. Only microservices is implemented in 0.2.0.",
-      "choices": [{ "choice": "microservices", "description": "Independently deployed services; no system-wide host." }]
+      "description": "Explicit system composition; modular-monolith adds the public API host.",
+      "choices": [
+        {
+          "choice": "microservices",
+          "description": "Independently deployed services; no system-wide host."
+        },
+        {
+          "choice": "modular-monolith",
+          "description": "One public API host composing independently named modules."
+        }
+      ]
     },
     "rootNamespace": {
       "type": "parameter",
       "datatype": "text",
       "isRequired": true,
       "description": "C# namespace prefix with PascalCase segments, e.g. Acme.Commerce. Caller validates before generation.",
-      "replaces": "CatalogNamespace"
+      "replaces": "CatalogNamespace",
+      "fileRename": "CatalogNamespace"
     }
-  }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(composition != \"modular-monolith\")",
+          "exclude": [
+            "src/**"
+          ]
+        }
+      ]
+    }
+  ]
 }

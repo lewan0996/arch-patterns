@@ -27,7 +27,8 @@ CQRS/SQL Server selections fail native validation without files (the engine
 may leave an empty output directory). Integrate the new projects using the
 [explicit intended-solution route](flat-service.md#explicit-solution-integration).
 The [rich/direct-service variation](rich-direct-service.md) selects aggregate behavior
-with the same creation route. Module generation, CQRS, SQL Server and Dapper remain planned.
+with the same creation route. [Named modules of modular monoliths](modular-monolith.md)
+use the anemic/direct-service profile. CQRS, SQL Server and Dapper remain planned.
 The broader four-pair architectural compatibility is separate from this evidence.
 
 ## Ownership and actual output

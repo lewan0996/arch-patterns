@@ -6,7 +6,7 @@
 when named internal modules would add no useful ownership boundary. Reconsider a
 [modular service](structure.md#deployable-layout) when multiple modules need their
 own contracts and data within one deployment. Adding a module requires explicit
-manual conversion first; no conversion or module generator is included here.
+manual conversion first; no automatic conversion is included. [Named module generation](modular-monolith.md) requires an existing modular host.
 Domain richness and application flow are independent architecture decisions.
 
 ## Inputs and creation

@@ -1,2 +1,7 @@
 <Solution>
+<!--#if (composition == "modular-monolith") -->
+  <Project Path="src/CatalogSystem/CatalogNamespace.CatalogSystem.API/CatalogNamespace.CatalogSystem.API.csproj" />
+  <Project Path="src/CatalogSystem/tests/CatalogNamespace.CatalogSystem.IntegrationTests/CatalogNamespace.CatalogSystem.IntegrationTests.csproj" />
+  <Project Path="src/CatalogSystem/tests/CatalogNamespace.CatalogSystem.ArchitectureTests/CatalogNamespace.CatalogSystem.ArchitectureTests.csproj" />
+<!--#endif -->
 </Solution>

@@ -28,7 +28,7 @@ flowchart LR
 
 Dependencies point inward. API references Infrastructure for composition. Consumers use published contracts and boundary adapters, not another module's context, tables or internal implementation. HTTP DTOs and public messages are distinct responsibilities. See the [illustrative project tree](structure.md#deployable-layout); the [flat service page](flat-service.md) supplies its actual project/test tree and integration instructions.
 
-**Compatibility/support:** these responsibilities apply to every retained domain/flow pair. Sources: [structure decision](https://github.com/lewan0996/arch-patterns/issues/6), [module decision](https://github.com/lewan0996/arch-patterns/issues/8), [layout contract](https://github.com/lewan0996/arch-patterns/issues/28#issuecomment-6002994331). [Flat service generation and checks](flat-service.md) are implemented; modular delivery remains planned in [#59](https://github.com/lewan0996/arch-patterns/issues/59).
+**Compatibility/support:** these responsibilities apply to every retained domain/flow pair. Sources: [structure decision](https://github.com/lewan0996/arch-patterns/issues/6), [module decision](https://github.com/lewan0996/arch-patterns/issues/8), [layout contract](https://github.com/lewan0996/arch-patterns/issues/28#issuecomment-6002994331). [Flat service generation and checks](flat-service.md) are implemented; [modular-monolith hosts and named modules](modular-monolith.md) are implemented with their documented evidence.
 
 ## Domain model
 

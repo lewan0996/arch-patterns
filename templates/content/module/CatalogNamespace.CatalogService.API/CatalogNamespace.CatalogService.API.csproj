@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="../CatalogNamespace.CatalogService.Application/CatalogNamespace.CatalogService.Application.csproj" />
+    <ProjectReference Include="../CatalogNamespace.CatalogService.Infrastructure/CatalogNamespace.CatalogService.Infrastructure.csproj" />
+    <ProjectReference Include="../CatalogNamespace.CatalogService.Contract/CatalogNamespace.CatalogService.Contract.csproj" />
+  </ItemGroup>
+</Project>
